@@ -6,22 +6,20 @@
 function makeCalculator() {
   // write code here
   const calculator = {
-    add(a, b) {
-      return a + b;
+    add(number) {
+      this.result += number;
     },
-    subtract(a, b) {
-      return a - b;
+    subtract(number) {
+      this.result -= number;
     },
-    multiply(a, b) {
-      return a * b;
+    multiply(number) {
+      this.result *= number;
     },
-    divide(a, b) {
-      return a / b;
+    divide(number) {
+      this.result /= number;
     },
     operate(operation, number) {
-      const currentResult = this.result;
-
-      this.result = operation(currentResult, number);
+      operation.call(this, number);
 
       return this;
     },
