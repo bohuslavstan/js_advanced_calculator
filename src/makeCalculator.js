@@ -19,7 +19,9 @@ function makeCalculator() {
       return a / b;
     },
     operate(operation, number) {
-      this.result = operation(this.result, number);
+      const currentResult = this.result;
+
+      this.result = operation(currentResult, number);
 
       return this;
     },
